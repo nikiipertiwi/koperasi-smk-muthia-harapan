@@ -1,0 +1,4053 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Koperasi SMK Muthia Harapan Cicalengka</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --navy:#16233d;
+  --navy-2:#223458;
+  --gold:#c99a2e;
+  --gold-light:#e9c869;
+  --forest:#2f5233;
+  --cream:#f6f3ec;
+  --paper:#fffdf8;
+  --ink:#1c2029;
+  --ink-soft:#565f72;
+  --line:#e3ddcd;
+  --danger:#a4442f;
+  --radius:4px;
+  --shadow:0 10px 30px rgba(22,35,61,0.10);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  padding:0;
+}
+
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Manrope',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+}
+
+h1,
+h2,
+h3,
+.serif{
+  font-family:'Fraunces',serif;
+  letter-spacing:-0.01em;
+}
+
+a{
+  color:inherit;
+}
+
+button{
+  font-family:inherit;
+  cursor:pointer;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+
+/* ================= TOP BAR ================= */
+
+.topbar{
+  background:linear-gradient(
+    180deg,
+    var(--navy) 0%,
+    var(--navy-2) 100%
+  );
+
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:50;
+  border-bottom:3px solid var(--gold);
+}
+
+.topbar-inner{
+  max-width:1180px;
+  margin:0 auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:14px 28px;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-badge{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+
+  background:radial-gradient(
+    circle at 35% 30%,
+    var(--gold-light),
+    var(--gold) 70%
+  );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-family:'Fraunces',serif;
+  font-weight:700;
+  color:var(--navy);
+  font-size:18px;
+
+  flex-shrink:0;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,0.4);
+}
+
+.brand-text .name{
+  font-family:'Fraunces',serif;
+  font-size:16px;
+  font-weight:600;
+  line-height:1.15;
+}
+
+.brand-text .sub{
+  font-size:11.5px;
+  color:#c7cfe0;
+  letter-spacing:.02em;
+}
+
+nav.mainnav{
+  display:flex;
+  gap:4px;
+}
+
+nav.mainnav button{
+  background:transparent;
+  border:none;
+  color:#dfe4ee;
+
+  padding:9px 16px;
+  border-radius:999px;
+
+  font-size:14.5px;
+  font-weight:600;
+
+  transition:
+    background .18s ease,
+    color .18s ease;
+}
+
+nav.mainnav button:hover{
+  background:rgba(255,255,255,0.08);
+  color:#fff;
+}
+
+nav.mainnav button.active{
+  background:var(--gold);
+  color:var(--navy);
+}
+
+.topbar-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.icon-btn{
+  position:relative;
+
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.16);
+
+  color:#fff;
+
+  width:40px;
+  height:40px;
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  transition:
+    transform .15s ease,
+    background .15s ease;
+}
+
+.icon-btn:hover{
+  background:rgba(255,255,255,0.18);
+  transform:translateY(-1px);
+}
+
+.icon-btn:active{
+  transform:translateY(0) scale(.94);
+}
+
+.cart-count{
+  position:absolute;
+  top:-4px;
+  right:-4px;
+
+  background:var(--danger);
+  color:#fff;
+
+  font-size:10.5px;
+  font-weight:700;
+
+  min-width:18px;
+  height:18px;
+
+  border-radius:999px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:0 4px;
+
+  border:2px solid var(--navy);
+}
+
+
+/* ================= LAYOUT ================= */
+
+.page{
+  display:none;
+
+  max-width:1180px;
+  margin:0 auto;
+
+  padding:40px 28px 90px;
+
+  animation:fadeIn .35s ease;
+}
+
+.page.active{
+  display:block;
+}
+
+@keyframes fadeIn{
+
+  from{
+    opacity:0;
+    transform:translateY(6px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+
+  gap:40px;
+  align-items:center;
+
+  background:var(--paper);
+
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+
+  padding:48px;
+
+  margin-bottom:52px;
+
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+
+  position:absolute;
+  right:-60px;
+  top:-60px;
+
+  width:220px;
+  height:220px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(201,154,46,0.14),
+      transparent 70%
+    );
+}
+
+.eyebrow-mark{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  margin-bottom:18px;
+
+  color:var(--forest);
+
+  font-weight:700;
+  font-size:13.5px;
+}
+
+.eyebrow-mark .dash{
+  width:26px;
+  height:2px;
+  background:var(--forest);
+}
+
+.hero h1{
+  font-size:clamp(30px,4vw,44px);
+  line-height:1.12;
+
+  margin:0 0 16px;
+
+  color:var(--navy);
+  font-weight:600;
+}
+
+.hero p{
+  color:var(--ink-soft);
+
+  font-size:16px;
+  line-height:1.6;
+
+  max-width:46ch;
+
+  margin:0 0 28px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  border:none;
+  border-radius:999px;
+
+  padding:14px 26px;
+
+  font-weight:700;
+  font-size:15px;
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease,
+    background .15s ease;
+}
+
+.btn:active{
+  transform:scale(.97);
+}
+
+.btn-primary{
+  background:var(--navy);
+  color:#fff;
+
+  box-shadow:
+    0 8px 20px rgba(22,35,61,0.25);
+}
+
+.btn-primary:hover{
+  background:var(--navy-2);
+
+  box-shadow:
+    0 10px 26px rgba(22,35,61,0.32);
+}
+
+.btn-gold{
+  background:var(--gold);
+  color:var(--navy);
+
+  box-shadow:
+    0 8px 20px rgba(201,154,46,0.35);
+}
+
+.btn-gold:hover{
+  background:var(--gold-light);
+}
+
+.btn-outline{
+  background:transparent;
+
+  border:1.5px solid var(--navy);
+
+  color:var(--navy);
+}
+
+.btn-outline:hover{
+  background:var(--navy);
+  color:#fff;
+}
+
+.btn-sm{
+  padding:9px 16px;
+  font-size:13.5px;
+  border-radius:999px;
+}
+
+.btn[disabled]{
+  opacity:.55;
+  cursor:not-allowed;
+  transform:none !important;
+}
+
+
+/* ================= HERO VISUAL ================= */
+
+.hero-visual{
+  aspect-ratio:1/0.95;
+
+  border-radius:var(--radius);
+
+  position:relative;
+
+  background:
+    linear-gradient(
+      160deg,
+      var(--navy) 0%,
+      var(--navy-2) 55%,
+      #2a3f66 100%
+    );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
+}
+
+.hero-visual .ring{
+  position:absolute;
+
+  border:
+    1.5px solid rgba(233,200,105,0.35);
+
+  border-radius:50%;
+}
+
+.hero-visual .r1{
+  width:260px;
+  height:260px;
+}
+
+.hero-visual .r2{
+  width:190px;
+  height:190px;
+}
+
+.hero-visual .glyph{
+  font-family:'Fraunces',serif;
+
+  color:var(--gold-light);
+
+  font-size:78px;
+  font-weight:600;
+
+  z-index:2;
+}
+
+.hero-visual .tag{
+  position:absolute;
+
+  bottom:22px;
+  left:22px;
+  right:22px;
+
+  color:#dfe4ee;
+
+  font-size:12.5px;
+
+  display:flex;
+  justify-content:space-between;
+
+  letter-spacing:.02em;
+}
+
+
+/* ================= SECTION ================= */
+
+.section-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+
+  margin-bottom:22px;
+
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.section-head h2{
+  font-size:26px;
+
+  color:var(--navy);
+
+  font-weight:600;
+
+  margin:0;
+}
+
+.section-head .desc{
+  color:var(--ink-soft);
+  font-size:14px;
+}
+
+
+/* ================= CATEGORY ================= */
+
+.cat-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(5,1fr);
+
+  gap:16px;
+
+  margin-bottom:56px;
+}
+
+.cat-card{
+  background:var(--paper);
+
+  border:1px solid var(--line);
+
+  border-radius:var(--radius);
+
+  padding:20px 16px;
+
+  text-align:center;
+
+  transition:
+    border-color .18s ease,
+    transform .18s ease,
+    box-shadow .18s ease;
+
+  cursor:pointer;
+}
+
+.cat-card:hover{
+  border-color:var(--gold);
+
+  transform:translateY(-3px);
+
+  box-shadow:var(--shadow);
+}
+
+.cat-card .emoji{
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.cat-card .label{
+  font-weight:700;
+  font-size:13.5px;
+  color:var(--navy);
+}
+
+
+/* ================= FILTER ================= */
+
+.filter-row{
+  display:flex;
+
+  gap:10px;
+
+  flex-wrap:wrap;
+
+  margin-bottom:26px;
+}
+
+.chip{
+  border:1px solid var(--line);
+
+  background:var(--paper);
+
+  color:var(--ink-soft);
+
+  padding:8px 16px;
+
+  border-radius:999px;
+
+  font-size:13.5px;
+  font-weight:600;
+
+  transition:all .15s ease;
+}
+
+.chip:hover{
+  border-color:var(--gold);
+  color:var(--navy);
+}
+
+.chip.active{
+  background:var(--navy);
+  border-color:var(--navy);
+  color:#fff;
+}
+
+
+/* ================= PRODUCT GRID ================= */
+
+.prod-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:22px;
+}
+
+.prod-card{
+  background:var(--paper);
+
+  border:1px solid var(--line);
+
+  border-radius:var(--radius);
+
+  overflow:hidden;
+
+  transition:
+    box-shadow .2s ease,
+    transform .2s ease;
+
+  display:flex;
+  flex-direction:column;
+}
+
+.prod-card:hover{
+  box-shadow:var(--shadow);
+  transform:translateY(-3px);
+}
+
+
+/* ================= PRODUCT IMAGE ================= */
+
+.prod-thumb{
+  aspect-ratio:4/3;
+
+  background:
+    linear-gradient(
+      150deg,
+      #eef1f6,
+      #e4e9f2
+    );
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  position:relative;
+
+  border-bottom:1px solid var(--line);
+
+  overflow:hidden;
+}
+
+.prod-thumb img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:
+    transform .25s ease;
+}
+
+.prod-card:hover .prod-thumb img{
+  transform:scale(1.04);
+}
+
+.prod-thumb .badge{
+  position:absolute;
+
+  top:10px;
+  left:10px;
+
+  z-index:2;
+
+  background:var(--forest);
+
+  color:#fff;
+
+  font-size:10.5px;
+
+  font-weight:700;
+
+  padding:4px 9px;
+
+  border-radius:999px;
+
+  letter-spacing:.02em;
+}
+
+
+/* ================= PRODUCT BODY ================= */
+
+.prod-body{
+  padding:18px 18px 20px;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:6px;
+
+  flex:1;
+}
+
+.prod-cat{
+  font-size:11.5px;
+
+  color:var(--ink-soft);
+
+  font-weight:600;
+}
+
+.prod-name{
+  font-family:'Fraunces',serif;
+
+  font-size:18px;
+
+  color:var(--navy);
+
+  font-weight:600;
+}
+
+.prod-price{
+  font-size:16px;
+
+  font-weight:700;
+
+  color:var(--ink);
+
+  margin-top:2px;
+}
+
+.prod-actions{
+  margin-top:auto;
+
+  display:flex;
+
+  gap:8px;
+
+  padding-top:14px;
+}
+
+.qty-add{
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:8px;
+
+  width:100%;
+
+  background:var(--navy);
+
+  color:#fff;
+
+  border-radius:999px;
+
+  padding:11px 14px;
+
+  font-weight:700;
+
+  font-size:14px;
+
+  border:none;
+
+  transition:
+    background .15s ease,
+    transform .15s ease;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.qty-add:hover{
+  background:var(--navy-2);
+}
+
+.qty-add.added{
+  background:var(--forest);
+}
+
+.qty-add:active{
+  transform:scale(.97);
+}
+
+
+/* ================= ORDER TABLE ================= */
+
+.toolbar{
+  display:flex;
+
+  gap:14px;
+
+  align-items:center;
+
+  margin-bottom:24px;
+
+  flex-wrap:wrap;
+}
+
+.search-box{
+  flex:1;
+
+  min-width:220px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  background:var(--paper);
+
+  border:1px solid var(--line);
+
+  border-radius:999px;
+
+  padding:11px 18px;
+}
+
+.search-box input{
+  border:none;
+
+  outline:none;
+
+  background:transparent;
+
+  font:inherit;
+
+  width:100%;
+
+  color:var(--ink);
+}
+
+.status-select{
+  background:var(--navy);
+
+  color:#fff;
+
+  border:none;
+
+  border-radius:999px;
+
+  padding:11px 18px;
+
+  font-weight:600;
+
+  font-size:14px;
+
+  appearance:none;
+
+  padding-right:36px;
+
+  background-image:url(
+    "data:image/svg+xml;utf8,
+    <svg xmlns='http://www.w3.org/2000/svg'
+    width='12' height='8'>
+    <path d='M1 1l5 5 5-5'
+    stroke='white'
+    stroke-width='2'
+    fill='none'/>
+    </svg>"
+  );
+
+  background-repeat:no-repeat;
+
+  background-position:right 16px center;
+}
+
+table.orders{
+  width:100%;
+
+  border-collapse:collapse;
+
+  background:var(--paper);
+
+  border:1px solid var(--line);
+
+  border-radius:var(--radius);
+
+  overflow:hidden;
+}
+
+table.orders thead th{
+  text-align:left;
+
+  font-size:12.5px;
+
+  color:var(--ink-soft);
+
+  background:#f0ede3;
+
+  padding:14px 18px;
+
+  border-bottom:1px solid var(--line);
+
+  font-weight:700;
+}
+
+table.orders tbody td{
+  padding:16px 18px;
+
+  border-bottom:1px solid var(--line);
+
+  font-size:14.5px;
+
+  vertical-align:middle;
+}
+
+table.orders tbody tr:last-child td{
+  border-bottom:none;
+}
+
+table.orders tbody tr{
+  transition:background .15s ease;
+}
+
+table.orders tbody tr:hover{
+  background:#faf8f1;
+}
+
+.order-no{
+  font-family:'Fraunces',serif;
+
+  font-weight:600;
+
+  color:var(--navy);
+}
+
+.status-pill{
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:6px;
+
+  font-size:12px;
+
+  font-weight:700;
+
+  padding:5px 12px;
+
+  border-radius:999px;
+}
+
+.status-pill.diproses{
+  background:#fdf0d8;
+  color:#8a5f14;
+}
+
+.status-pill.dikirim{
+  background:#dce9f7;
+  color:#1e548c;
+}
+
+.status-pill.selesai{
+  background:#dcefdf;
+  color:#256b3a;
+}
+
+.status-pill.dibatalkan{
+  background:#fbdedb;
+  color:#a4442f;
+}
+
+.link-detail{
+  background:none;
+
+  border:1px solid var(--navy);
+
+  color:var(--navy);
+
+  font-size:12.5px;
+
+  font-weight:700;
+
+  padding:6px 13px;
+
+  border-radius:999px;
+}
+
+.link-detail:hover{
+  background:var(--navy);
+  color:#fff;
+}
+
+.empty-row td{
+  text-align:center;
+
+  padding:44px 18px;
+
+  color:var(--ink-soft);
+}
+
+
+/* ================= PROFILE ================= */
+
+.profile-wrap{
+  display:grid;
+
+  grid-template-columns:280px 1fr;
+
+  gap:28px;
+}
+
+.profile-card{
+  background:var(--paper);
+
+  border:1px solid var(--line);
+
+  border-radius:var(--radius);
+
+  padding:30px 24px;
+
+  text-align:center;
+}
+
+.avatar{
+  width:96px;
+  height:96px;
+
+  border-radius:50%;
+
+  margin:0 auto 16px;
+
+  background:
+    linear-gradient(
+      160deg,
+      var(--navy),
+      var(--navy-2)
+    );
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  color:var(--gold-light);
+
+  font-family:'Fraunces',serif;
+
+  font-size:34px;
+
+  font-weight:600;
+
+  border:3px solid var(--gold);
+}
+
+.profile-card h3{
+  margin:0 0 4px;
+
+  color:var(--navy);
+
+  font-size:19px;
+}
+
+.profile-card .email{
+  color:var(--ink-soft);
+
+  font-size:13.5px;
+
+  margin-bottom:18px;
+}
+
+.profile-detail{
+  background:var(--paper);
+
+  border:1px solid var(--line);
+
+  border-radius:var(--radius);
+
+  padding:26px 28px;
+}
+
+.profile-detail h4{
+  margin:0 0 18px;
+
+  color:var(--navy);
+
+  font-size:15.5px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+}
+
+.field-row{
+  display:grid;
+
+  grid-template-columns:140px 1fr;
+
+  gap:12px;
+
+  padding:11px 0;
+
+  border-bottom:1px solid var(--line);
+
+  font-size:14.5px;
+}
+
+.field-row:last-child{
+  border-bottom:none;
+}
+
+.field-row .k{
+  color:var(--ink-soft);
+
+  font-weight:600;
+}
+
+.field-row input{
+  border:1px solid var(--line);
+
+  border-radius:var(--radius);
+
+  padding:8px 10px;
+
+  font:inherit;
+
+  width:100%;
+
+  background:#fcfbf7;
+}
+
+.field-row input:focus{
+  outline:2px solid var(--gold);
+
+  border-color:var(--gold);
+}
+
+.divider-line{
+  height:1px;
+
+  background:var(--line);
+
+  margin:26px 0;
+}
+
+
+/* ================= LOGIN ================= */
+
+.login-screen{
+  position:fixed;
+
+  inset:0;
+
+  z-index:200;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  background:
+    linear-gradient(
+      rgba(15,22,38,0.72),
+      rgba(15,22,38,0.82)
+    ),
+    repeating-linear-gradient(
+      45deg,
+      #24314d 0 2px,
+      #1c2740 2px 40px
+    );
+}
+
+.login-screen.hidden{
+  display:none;
+}
+
+.login-card{
+  width:100%;
+
+  max-width:380px;
+
+  background:var(--paper);
+
+  border-radius:var(--radius);
+
+  padding:36px 32px 32px;
+
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.35);
+
+  position:relative;
+}
+
+.login-card .top-emblem{
+  width:58px;
+  height:58px;
+
+  border-radius:50%;
+
+  margin:0 auto 18px;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      var(--gold-light),
+      var(--gold) 70%
+    );
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  font-family:'Fraunces',serif;
+
+  font-weight:700;
+
+  color:var(--navy);
+
+  font-size:22px;
+}
+
+.login-card h2{
+  text-align:center;
+
+  color:var(--navy);
+
+  margin:0 0 4px;
+
+  font-size:22px;
+}
+
+.login-card .lead{
+  text-align:center;
+
+  color:var(--ink-soft);
+
+  font-size:13.5px;
+
+  margin-bottom:26px;
+}
+
+.field{
+  margin-bottom:14px;
+}
+
+.field label{
+  display:block;
+
+  font-size:12.5px;
+
+  font-weight:700;
+
+  color:var(--navy);
+
+  margin-bottom:6px;
+}
+
+.field input{
+  width:100%;
+
+  padding:12px 14px;
+
+  border:1px solid var(--line);
+
+  border-radius:var(--radius);
+
+  font:inherit;
+
+  background:#fcfbf7;
+
+  transition:
+    border-color .15s ease,
+    box-shadow .15s ease;
+}
+
+.field input:focus{
+  outline:none;
+
+  border-color:var(--gold);
+
+  box-shadow:
+    0 0 0 3px rgba(201,154,46,0.18);
+}
+
+.field-between{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  font-size:12.5px;
+
+  margin:2px 0 20px;
+
+  color:var(--ink-soft);
+}
+
+.field-between a{
+  color:var(--navy);
+
+  font-weight:700;
+
+  text-decoration:none;
+}
+
+.login-card .btn{
+  width:100%;
+
+  justify-content:center;
+}
+
+.login-foot{
+  text-align:center;
+
+  margin-top:18px;
+
+  font-size:12px;
+
+  color:var(--ink-soft);
+}
+
+.error-msg{
+  color:var(--danger);
+
+  font-size:12.5px;
+
+  margin-top:-6px;
+
+  margin-bottom:12px;
+
+  display:none;
+
+  font-weight:600;
+}
+
+.error-msg.show{
+  display:block;
+}
+
+
+/* ================= CART ================= */
+
+.cart-drawer{
+  position:fixed;
+
+  top:0;
+
+  right:-380px;
+
+  width:360px;
+
+  height:100%;
+
+  background:var(--paper);
+
+  z-index:150;
+
+  box-shadow:
+    -16px 0 40px rgba(0,0,0,0.18);
+
+  transition:right .28s ease;
+
+  display:flex;
+
+  flex-direction:column;
+
+  border-left:1px solid var(--line);
+}
+
+.cart-drawer.open{
+  right:0;
+}
+
+.cart-head{
+  padding:22px 22px 16px;
+
+  border-bottom:1px solid var(--line);
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+}
+
+.cart-head h3{
+  margin:0;
+
+  color:var(--navy);
+
+  font-size:18px;
+}
+
+.cart-close{
+  background:none;
+
+  border:none;
+
+  font-size:20px;
+
+  color:var(--ink-soft);
+}
+
+.cart-items{
+  flex:1;
+
+  overflow-y:auto;
+
+  padding:14px 22px;
+}
+
+.cart-item{
+  display:flex;
+
+  gap:12px;
+
+  padding:14px 0;
+
+  border-bottom:1px solid var(--line);
+
+  align-items:center;
+}
+
+.cart-item .thumb{
+  width:46px;
+  height:46px;
+
+  border-radius:var(--radius);
+
+  background:#eef1f6;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
+
+  flex-shrink:0;
+}
+
+.cart-item .thumb img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+}
+
+.cart-item .info{
+  flex:1;
+}
+
+.cart-item .info .n{
+  font-weight:700;
+
+  font-size:13.5px;
+
+  color:var(--navy);
+}
+
+.cart-item .info .p{
+  font-size:12.5px;
+
+  color:var(--ink-soft);
+}
+
+.cart-item .rm{
+  background:none;
+
+  border:none;
+
+  color:var(--danger);
+
+  font-size:12px;
+
+  font-weight:700;
+}
+
+.cart-empty{
+  text-align:center;
+
+  color:var(--ink-soft);
+
+  padding:60px 10px;
+
+  font-size:14px;
+}
+
+.cart-foot{
+  padding:20px 22px 26px;
+
+  border-top:1px solid var(--line);
+}
+
+.cart-total{
+  display:flex;
+
+  justify-content:space-between;
+
+  font-weight:700;
+
+  color:var(--navy);
+
+  margin-bottom:14px;
+
+  font-size:16px;
+}
+
+.scrim{
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(15,22,38,0.4);
+
+  z-index:140;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:opacity .25s ease;
+}
+
+.scrim.show{
+  opacity:1;
+
+  pointer-events:auto;
+}
+
+
+/* ================= TOAST ================= */
+
+.toast-wrap{
+  position:fixed;
+
+  bottom:24px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  z-index:300;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:10px;
+
+  align-items:center;
+}
+
+.toast{
+  background:var(--navy);
+
+  color:#fff;
+
+  padding:13px 22px;
+
+  border-radius:999px;
+
+  font-size:13.5px;
+
+  font-weight:600;
+
+  box-shadow:
+    0 12px 26px rgba(0,0,0,0.25);
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  animation:
+    toastIn .25s ease,
+    toastOut .3s ease 2.2s forwards;
+}
+
+.toast .dot{
+  width:8px;
+  height:8px;
+
+  border-radius:50%;
+
+  background:var(--gold);
+
+  flex-shrink:0;
+}
+
+@keyframes toastIn{
+
+  from{
+    opacity:0;
+    transform:translateY(14px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+@keyframes toastOut{
+
+  to{
+    opacity:0;
+    transform:translateY(-8px);
+  }
+
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:var(--navy);
+
+  color:#c7cfe0;
+
+  text-align:center;
+
+  padding:26px;
+
+  font-size:12.5px;
+}
+
+footer strong{
+  color:#fff;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:960px){
+
+  nav.mainnav{
+    display:none;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .cat-grid{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .prod-grid{
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .profile-wrap{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+@media(max-width:560px){
+
+  .topbar-inner{
+    padding:12px 16px;
+  }
+
+  .brand-text .name{
+    font-size:14px;
+  }
+
+  .brand-text .sub{
+    font-size:10px;
+  }
+
+  .hero{
+    padding:30px 22px;
+  }
+
+  .hero-visual{
+    min-height:300px;
+  }
+
+  .prod-grid{
+    grid-template-columns:1fr;
+  }
+
+  .cat-grid{
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .cart-drawer{
+    width:100%;
+    right:-100%;
+  }
+
+  table.orders{
+    display:block;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+
+  .field-row{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+/* ================= IMAGE FALLBACK ================= */
+
+.image-error{
+  width:100%;
+  height:100%;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  color:var(--ink-soft);
+
+  font-size:13px;
+
+  text-align:center;
+
+  padding:20px;
+}
+
+.image-error span{
+  font-size:40px;
+
+  margin-bottom:8px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ================= LOGIN SCREEN ================= -->
+
+<div class="login-screen" id="loginScreen">
+
+  <div class="login-card">
+
+    <div class="top-emblem">
+      MH
+    </div>
+
+    <h2>
+      Selamat Datang
+    </h2>
+
+    <p class="lead">
+      Masuk untuk mengakses Koperasi<br>
+      SMK Muthia Harapan Cicalengka
+    </p>
+
+    <form id="loginForm">
+
+      <div class="field">
+
+        <label for="loginUser">
+          Username / NIS
+        </label>
+
+        <input
+          id="loginUser"
+          type="text"
+          placeholder="Masukkan username atau NIS"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="loginPass">
+          Kata sandi
+        </label>
+
+        <input
+          id="loginPass"
+          type="password"
+          placeholder="Masukkan kata sandi"
+          required
+        >
+
+      </div>
+
+
+      <p class="error-msg" id="loginError">
+        Username dan kata sandi wajib diisi.
+      </p>
+
+
+      <div class="field-between">
+
+        <label>
+          <input
+            type="checkbox"
+            style="margin-right:6px;"
+          >
+          Ingat saya
+        </label>
+
+        <a href="#">
+          Lupa kata sandi?
+        </a>
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="btn btn-gold"
+      >
+        Masuk ke Koperasi
+      </button>
+
+    </form>
+
+
+    <p class="login-foot">
+      Koperasi Sekolah · SMK Muthia Harapan Cicalengka
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- ================= TOP BAR ================= -->
+
+<div class="topbar">
+
+  <div class="topbar-inner">
+
+    <div class="brand">
+
+      <div class="brand-badge">
+        MH
+      </div>
+
+      <div class="brand-text">
+
+        <div class="name">
+          Koperasi Muthia Harapan
+        </div>
+
+        <div class="sub">
+          SMK Muthia Harapan · Cicalengka
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <nav class="mainnav" id="mainNav">
+
+      <button
+        data-page="beranda"
+        class="active"
+      >
+        Beranda
+      </button>
+
+      <button data-page="produk">
+        Produk
+      </button>
+
+      <button data-page="pesanan">
+        Pesanan
+      </button>
+
+      <button data-page="profil">
+        Profil
+      </button>
+
+    </nav>
+
+
+    <div class="topbar-actions">
+
+      <button
+        class="icon-btn"
+        id="cartBtn"
+        title="Keranjang"
+      >
+        🛒
+
+        <span
+          class="cart-count"
+          id="cartCount"
+          style="display:none;"
+        >
+          0
+        </span>
+
+      </button>
+
+
+      <button
+        class="icon-btn"
+        id="logoutBtn"
+        title="Keluar"
+      >
+        ⎋
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= BERANDA ================= -->
+
+<section
+  class="page active"
+  id="page-beranda"
+>
+
+  <div class="hero">
+
+    <div>
+
+      <div class="eyebrow-mark">
+
+        <span class="dash"></span>
+
+        Toko Resmi Sekolah
+
+      </div>
+
+
+      <h1>
+        Perlengkapan seragam,
+        satu tempat,
+        satu standar mutu.
+      </h1>
+
+
+      <p>
+        Belanja seragam, atribut, dan pakaian jurusan resmi
+        SMK Muthia Harapan Cicalengka — dipesan lewat sekolah,
+        dijamin sesuai ketentuan, dan dapat dipantau sampai diterima.
+      </p>
+
+
+      <div
+        style="
+          display:flex;
+          gap:12px;
+          flex-wrap:wrap;
+        "
+      >
+
+        <button
+          class="btn btn-primary"
+          data-goto="produk"
+        >
+          Belanja Sekarang
+        </button>
+
+
+        <button
+          class="btn btn-outline"
+          data-goto="pesanan"
+        >
+          Lihat Pesanan Saya
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+      <div class="ring r1"></div>
+
+      <div class="ring r2"></div>
+
+      <div class="glyph">
+        YMHM
+      </div>
+
+      <div class="tag">
+
+        <span>
+          Est. Yayasan Muthia Harapan
+        </span>
+
+        <span>
+          Cicalengka · Bandung
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="section-head">
+
+    <h2>
+      Kategori Produk
+    </h2>
+
+    <span class="desc">
+      Pilih kategori untuk melihat kelengkapan seragam
+    </span>
+
+  </div>
+
+
+  <div
+    class="cat-grid"
+    id="catGrid"
+  ></div>
+
+
+  <div class="section-head">
+
+    <h2>
+      Produk Unggulan
+    </h2>
+
+    <span class="desc">
+      Paling banyak dipesan bulan ini
+    </span>
+
+  </div>
+
+
+  <div
+    class="prod-grid"
+    id="featuredGrid"
+  ></div>
+
+</section>
+
+
+<!-- ================= PRODUK ================= -->
+
+<section
+  class="page"
+  id="page-produk"
+>
+
+  <div class="section-head">
+
+    <h2>
+      Katalog Produk
+    </h2>
+
+    <span
+      class="desc"
+      id="produkCount"
+    >
+      Menampilkan semua produk
+    </span>
+
+  </div>
+
+
+  <div
+    class="filter-row"
+    id="filterRow"
+  ></div>
+
+
+  <div
+    class="prod-grid"
+    id="produkGrid"
+  ></div>
+
+</section>
+
+
+<!-- ================= PESANAN ================= -->
+
+<section
+  class="page"
+  id="page-pesanan"
+>
+
+  <div class="section-head">
+
+    <h2>
+      Pesanan Saya
+    </h2>
+
+    <span class="desc">
+      Riwayat dan status pesanan koperasi sekolah
+    </span>
+
+  </div>
+
+
+  <div class="toolbar">
+
+    <div class="search-box">
+
+      <span>
+        🔍
+      </span>
+
+      <input
+        id="orderSearch"
+        type="text"
+        placeholder="Cari nomor pesanan atau item..."
+      >
+
+    </div>
+
+
+    <select
+      class="status-select"
+      id="statusFilter"
+    >
+
+      <option value="semua">
+        Semua Status
+      </option>
+
+      <option value="diproses">
+        Diproses
+      </option>
+
+      <option value="dikirim">
+        Dikirim
+      </option>
+
+      <option value="selesai">
+        Selesai
+      </option>
+
+      <option value="dibatalkan">
+        Dibatalkan
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <table class="orders">
+
+    <thead>
+
+      <tr>
+
+        <th>
+          No. Pesanan
+        </th>
+
+        <th>
+          Tanggal
+        </th>
+
+        <th>
+          Item
+        </th>
+
+        <th>
+          Total
+        </th>
+
+        <th>
+          Status
+        </th>
+
+        <th></th>
+
+      </tr>
+
+    </thead>
+
+
+    <tbody id="orderBody"></tbody>
+
+  </table>
+
+</section>
+
+
+<!-- ================= PROFIL ================= -->
+
+<section
+  class="page"
+  id="page-profil"
+>
+
+  <div class="section-head">
+
+    <h2>
+      Profil Saya
+    </h2>
+
+    <span class="desc">
+      Kelola data pribadi dan alamat pengiriman
+    </span>
+
+  </div>
+
+
+  <div class="profile-wrap">
+
+
+    <div class="profile-card">
+
+      <div
+        class="avatar"
+        id="avatarInitial"
+      >
+        NP
+      </div>
+
+
+      <h3 id="profileName">
+        Niki Pertiwi
+      </h3>
+
+
+      <div
+        class="email"
+        id="profileEmail"
+      >
+        nikipertiwi1@gmail.com
+      </div>
+
+
+      <button
+        class="btn btn-outline btn-sm"
+        id="editToggleBtn"
+      >
+        Ubah Data
+      </button>
+
+    </div>
+
+
+    <div class="profile-detail">
+
+      <h4>
+        Data Pribadi
+      </h4>
+
+
+      <div id="dataPribadi">
+
+        <div class="field-row">
+
+          <div class="k">
+            Nama lengkap
+          </div>
+
+          <div
+            class="v"
+            data-field="nama"
+          >
+            Niki Pertiwi
+          </div>
+
+        </div>
+
+
+        <div class="field-row">
+
+          <div class="k">
+            Email
+          </div>
+
+          <div
+            class="v"
+            data-field="email"
+          >
+            nikipertiwi1@gmail.com
+          </div>
+
+        </div>
+
+
+        <div class="field-row">
+
+          <div class="k">
+            No. HP
+          </div>
+
+          <div
+            class="v"
+            data-field="hp"
+          >
+            089656787587
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="divider-line"></div>
+
+
+      <h4>
+        Alamat Pengiriman
+      </h4>
+
+
+      <div id="alamatPengiriman">
+
+        <div class="field-row">
+
+          <div class="k">
+            Alamat
+          </div>
+
+          <div
+            class="v"
+            data-field="alamat"
+          >
+            Kp. Babakan Peuteuy RT 03 RW 08
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div
+        style="
+          margin-top:22px;
+          display:flex;
+          gap:10px;
+        "
+      >
+
+        <button
+          class="btn btn-primary btn-sm"
+          id="saveProfileBtn"
+          style="display:none;"
+        >
+          Simpan Perubahan
+        </button>
+
+
+        <button
+          class="btn btn-outline btn-sm"
+          id="cancelProfileBtn"
+          style="display:none;"
+        >
+          Batal
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <strong>
+    Koperasi SMK Muthia Harapan Cicalengka
+  </strong>
+
+  · Yayasan Muthia Harapan · Cicalengka, Bandung
+
+</footer>
+
+
+<!-- ================= CART ================= -->
+
+<div
+  class="scrim"
+  id="scrim"
+></div>
+
+
+<div
+  class="cart-drawer"
+  id="cartDrawer"
+>
+
+  <div class="cart-head">
+
+    <h3>
+      Keranjang Belanja
+    </h3>
+
+    <button
+      class="cart-close"
+      id="cartCloseBtn"
+    >
+      ✕
+    </button>
+
+  </div>
+
+
+  <div
+    class="cart-items"
+    id="cartItems"
+  ></div>
+
+
+  <div class="cart-foot">
+
+    <div class="cart-total">
+
+      <span>
+        Total
+      </span>
+
+      <span id="cartTotal">
+        Rp 0
+      </span>
+
+    </div>
+
+
+    <button
+      class="btn btn-gold"
+      style="
+        width:100%;
+        justify-content:center;
+      "
+      id="checkoutBtn"
+    >
+      Buat Pesanan
+    </button>
+
+  </div>
+
+</div>
+
+
+<div
+  class="toast-wrap"
+  id="toastWrap"
+></div>
+
+
+<script>
+
+
+/* =========================================================
+   DATA KATEGORI
+========================================================= */
+
+const categories = [
+
+  {
+    key:'seragam',
+    label:'Seragam',
+    emoji:'👔'
+  },
+
+  {
+    key:'celana',
+    label:'Celana Abu',
+    emoji:'👖'
+  },
+
+  {
+    key:'rok',
+    label:'Rok Abu',
+    emoji:'👗'
+  },
+
+  {
+    key:'jurusan',
+    label:'Jurusan',
+    emoji:'🧥'
+  },
+
+  {
+    key:'batik',
+    label:'Batik',
+    emoji:'👘'
+  },
+
+  {
+    key:'almamater',
+    label:'Jas Almamater',
+    emoji:'🥼'
+  },
+
+  {
+    key:'topi',
+    label:'Topi',
+    emoji:'🧢'
+  },
+
+  {
+    key:'dasi',
+    label:'Dasi',
+    emoji:'👔'
+  },
+
+  {
+    key:'gesper',
+    label:'Gesper',
+    emoji:'⛓️'
+  },
+
+  {
+    key:'olahraga',
+    label:'Olahraga',
+    emoji:'🏃'
+  },
+
+  {
+    
+    key:'Pramuka',
+    label:'Pramuka',
+    emoji:'🏃'
+  }
+
+];
+
+
+/* =========================================================
+   DATA PRODUK
+   GAMBAR DIAMBIL DARI FOLDER img
+========================================================= */
+
+const products = [
+
+  {
+    id:1,
+    name:'Seragam Putih Lengan Panjang',
+    cat:'seragam',
+    price:165000,
+    image:'putih.jpg'
+  },
+
+  {
+    id:2,
+    name:'Celana Panjang Abu',
+    cat:'celana',
+    price:175000,
+    image:'celana.jpg'
+  },
+
+  {
+    id:3,
+    name:'Rok Panjang Abu',
+    cat:'rok',
+    price:170000,
+    image:'rok.jpg'
+  },
+
+  {
+    id:4,
+    name:'Baju Jurusan PRL',
+    cat:'jurusan',
+    price:7690000,
+    image:'rpl.jpg',
+    featured:true
+  },
+
+  {
+    id:5,
+    name:'Baju Jurusan TBSM',
+    cat:'jurusan',
+    price:9022027,
+    image:'tsm.jpg',
+    featured:true
+  },
+
+  {
+    id:6,
+    name:'Baju Pramuka',
+    cat:'Pramuka',
+    price:225000,
+    image:'pramuka.jpg'
+  },
+
+
+  {
+    id:7,
+    name:'Batik Sekolah',
+    cat:'batik',
+    price:195000,
+    image:'btk.jpg'
+  },
+
+  {
+    id:8,
+    name:'Jas Almamater',
+    cat:'almamater',
+    price:245000,
+    image:'almet.jpg'
+  },
+
+  {
+    id:9,
+    name:'Topi Sekolah',
+    cat:'topi',
+    price:45000,
+    image:'topi.jpg'
+  },
+
+  {
+    id:10,
+    name:'Dasi Sekolah',
+    cat:'dasi',
+    price:35000,
+    image:'dasi.jpg'
+  },
+
+  {
+    id:11,
+    name:'Gesper / Ikat Pinggang',
+    cat:'gesper',
+    price:55000,
+    image:'gesper.jpg'
+  },
+
+  {
+    id:12,
+    name:'Set Baju Olahraga',
+    cat:'olahraga',
+    price:24750000,
+    image:'olga.jpg',
+    featured:true
+  }
+
+];
+
+
+/* =========================================================
+   DATA PESANAN
+========================================================= */
+
+let orders = [
+
+  {
+    no:'#SAN080175',
+    tanggal:'07 September 2024',
+    item:'Set baju olahraga',
+    total:24750000,
+    status:'diproses'
+  },
+
+  {
+    no:'#DSN031269',
+    tanggal:'09 Juli 2024',
+    item:'Baju jurusan RPL',
+    total:7690000,
+    status:'diproses'
+  }
+
+];
+
+
+let cart = [];
+
+let editingProfile = false;
+
+
+/* =========================================================
+   HELPER RUPIAH
+========================================================= */
+
+function rupiah(n){
+
+  return 'Rp ' +
+    Number(n).toLocaleString('id-ID');
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function toast(msg){
+
+  const wrap =
+    document.getElementById('toastWrap');
+
+  const el =
+    document.createElement('div');
+
+  el.className='toast';
+
+  el.innerHTML =
+    '<span class="dot"></span>' +
+    msg;
+
+  wrap.appendChild(el);
+
+  setTimeout(()=>{
+    el.remove();
+  },2600);
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function goTo(pageName){
+
+  document
+    .querySelectorAll('.page')
+    .forEach(p=>{
+      p.classList.remove('active');
+    });
+
+
+  document
+    .getElementById('page-'+pageName)
+    .classList.add('active');
+
+
+  document
+    .querySelectorAll('#mainNav button')
+    .forEach(b=>{
+
+      b.classList.toggle(
+        'active',
+        b.dataset.page===pageName
+      );
+
+    });
+
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+
+}
+
+
+document
+  .getElementById('mainNav')
+  .addEventListener('click',e=>{
+
+    const btn =
+      e.target.closest(
+        'button[data-page]'
+      );
+
+    if(btn){
+
+      goTo(btn.dataset.page);
+
+    }
+
+  });
+
+
+document
+  .querySelectorAll('[data-goto]')
+  .forEach(el=>{
+
+    el.addEventListener('click',()=>{
+
+      goTo(el.dataset.goto);
+
+    });
+
+  });
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+document
+  .getElementById('loginForm')
+  .addEventListener('submit',e=>{
+
+    e.preventDefault();
+
+
+    const u =
+      document
+      .getElementById('loginUser')
+      .value
+      .trim();
+
+
+    const p =
+      document
+      .getElementById('loginPass')
+      .value
+      .trim();
+
+
+    const err =
+      document
+      .getElementById('loginError');
+
+
+    if(!u || !p){
+
+      err.classList.add('show');
+
+      return;
+
+    }
+
+
+    err.classList.remove('show');
+
+
+    document
+      .getElementById('loginScreen')
+      .classList.add('hidden');
+
+
+    toast(
+      'Berhasil masuk. Selamat berbelanja, ' +
+      u.split('@')[0] +
+      '!'
+    );
+
+  });
+
+
+document
+  .getElementById('logoutBtn')
+  .addEventListener('click',()=>{
+
+    document
+      .getElementById('loginScreen')
+      .classList.remove('hidden');
+
+
+    document
+      .getElementById('loginUser')
+      .value='';
+
+
+    document
+      .getElementById('loginPass')
+      .value='';
+
+  });
+
+
+/* =========================================================
+   RENDER CATEGORY
+========================================================= */
+
+function renderCategories(){
+
+  const grid =
+    document.getElementById('catGrid');
+
+
+  grid.innerHTML =
+    categories
+      .map(c=>`
+
+        <div
+          class="cat-card"
+          data-cat="${c.key}"
+        >
+
+          <div class="emoji">
+            ${c.emoji}
+          </div>
+
+          <div class="label">
+            ${c.label}
+          </div>
+
+        </div>
+
+      `)
+      .join('');
+
+
+  grid
+    .querySelectorAll('.cat-card')
+    .forEach(card=>{
+
+      card.addEventListener('click',()=>{
+
+        goTo('produk');
+
+        setActiveFilter(
+          card.dataset.cat
+        );
+
+      });
+
+    });
+
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+function productCard(p){
+
+  return `
+
+    <div
+      class="prod-card"
+      data-id="${p.id}"
+    >
+
+      <div class="prod-thumb">
+
+        ${
+          p.featured
+          ? '<span class="badge">Unggulan</span>'
+          : ''
+        }
+
+
+        <img
+          src="${p.image}"
+          alt="${p.name}"
+          loading="lazy"
+
+          onerror="
+            this.style.display='none';
+            this.nextElementSibling.style.display='flex';
+          "
+        >
+
+
+        <div
+          class="image-error"
+          style="display:none;"
+        >
+
+          <span>
+            🖼️
+          </span>
+
+          <div>
+            Gambar belum ditemukan
+          </div>
+
+          <small>
+            ${p.image}
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="prod-body">
+
+        <div class="prod-cat">
+
+          ${
+            categories.find(
+              c=>c.key===p.cat
+            )?.label || ''
+          }
+
+        </div>
+
+
+        <div class="prod-name">
+          ${p.name}
+        </div>
+
+
+        <div class="prod-price">
+          ${rupiah(p.price)}
+        </div>
+
+
+        <div class="prod-actions">
+
+          <button
+            class="qty-add"
+            data-add="${p.id}"
+          >
+
+            <span>
+              + Tambah Keranjang
+            </span>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   FEATURED
+========================================================= */
+
+function renderFeatured(){
+
+  const grid =
+    document.getElementById(
+      'featuredGrid'
+    );
+
+
+  const featured =
+    products.filter(
+      p=>p.featured
+    );
+
+
+  grid.innerHTML =
+    featured
+      .map(productCard)
+      .join('');
+
+
+  bindAddButtons(grid);
+
+}
+
+
+/* =========================================================
+   PRODUCT FILTER
+========================================================= */
+
+let activeFilter='semua';
+
+
+function renderProdukFilters(){
+
+  const row =
+    document.getElementById(
+      'filterRow'
+    );
+
+
+  const chips = [
+
+    {
+      key:'semua',
+      label:'Semua'
+    },
+
+    ...categories
+
+  ];
+
+
+  row.innerHTML =
+    chips
+      .map(c=>`
+
+        <button
+          class="chip ${
+            c.key===activeFilter
+            ? 'active'
+            : ''
+          }"
+          data-filter="${c.key}"
+        >
+          ${c.label}
+        </button>
+
+      `)
+      .join('');
+
+
+  row
+    .querySelectorAll('.chip')
+    .forEach(chip=>{
+
+      chip.addEventListener(
+        'click',
+        ()=>{
+          setActiveFilter(
+            chip.dataset.filter
+          );
+        }
+      );
+
+    });
+
+}
+
+
+function setActiveFilter(key){
+
+  activeFilter=key;
+
+  renderProdukFilters();
+
+  renderProdukGrid();
+
+}
+
+
+function renderProdukGrid(){
+
+  const grid =
+    document.getElementById(
+      'produkGrid'
+    );
+
+
+  const list =
+    activeFilter==='semua'
+    ? products
+    : products.filter(
+        p=>p.cat===activeFilter
+      );
+
+
+  grid.innerHTML =
+    list
+      .map(productCard)
+      .join('');
+
+
+  const category =
+    categories.find(
+      c=>c.key===activeFilter
+    );
+
+
+  document
+    .getElementById('produkCount')
+    .textContent =
+      activeFilter==='semua'
+
+      ? `Menampilkan ${list.length} produk`
+
+      : `Menampilkan ${list.length} produk pada kategori "${category?.label || ''}"`;
+
+
+  bindAddButtons(grid);
+
+}
+
+
+/* =========================================================
+   ADD TO CART BUTTON
+========================================================= */
+
+function bindAddButtons(scope){
+
+  scope
+    .querySelectorAll('[data-add]')
+    .forEach(btn=>{
+
+      btn.addEventListener(
+        'click',
+        ()=>{
+
+          const id =
+            parseInt(
+              btn.dataset.add
+            );
+
+
+          addToCart(id);
+
+
+          btn.classList.add('added');
+
+
+          btn.innerHTML =
+            '<span>✓ Ditambahkan</span>';
+
+
+          setTimeout(()=>{
+
+            btn.classList.remove(
+              'added'
+            );
+
+            btn.innerHTML =
+              '<span>+ Tambah Keranjang</span>';
+
+          },1100);
+
+        }
+      );
+
+    });
+
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+function addToCart(id){
+
+  const p =
+    products.find(
+      x=>x.id===id
+    );
+
+
+  if(!p){
+
+    return;
+
+  }
+
+
+  const existing =
+    cart.find(
+      x=>x.id===id
+    );
+
+
+  if(existing){
+
+    existing.qty += 1;
+
+  }else{
+
+    cart.push({
+      ...p,
+      qty:1
+    });
+
+  }
+
+
+  renderCart();
+
+
+  toast(
+    p.name +
+    ' ditambahkan ke keranjang'
+  );
+
+}
+
+
+function removeFromCart(id){
+
+  cart =
+    cart.filter(
+      x=>x.id!==id
+    );
+
+
+  renderCart();
+
+}
+
+
+/* =========================================================
+   RENDER CART
+========================================================= */
+
+function renderCart(){
+
+  const count =
+    cart.reduce(
+      (a,c)=>a+c.qty,
+      0
+    );
+
+
+  const badge =
+    document.getElementById(
+      'cartCount'
+    );
+
+
+  badge.style.display =
+    count>0
+    ? 'flex'
+    : 'none';
+
+
+  badge.textContent=count;
+
+
+  const itemsEl =
+    document.getElementById(
+      'cartItems'
+    );
+
+
+  if(cart.length===0){
+
+    itemsEl.innerHTML = `
+
+      <div class="cart-empty">
+
+        Keranjang masih kosong.
+
+        <br>
+
+        Yuk pilih perlengkapan sekolahmu.
+
+      </div>
+
+    `;
+
+  }else{
+
+    itemsEl.innerHTML =
+      cart.map(item=>`
+
+        <div class="cart-item">
+
+          <div class="thumb">
+
+            <img
+              src="${item.image}"
+              alt="${item.name}"
+
+              onerror="
+                this.style.display='none';
+              "
+            >
+
+          </div>
+
+
+          <div class="info">
+
+            <div class="n">
+              ${item.name}
+            </div>
+
+            <div class="p">
+              ${item.qty} × ${rupiah(item.price)}
+            </div>
+
+          </div>
+
+
+          <button
+            class="rm"
+            data-rm="${item.id}"
+          >
+            Hapus
+          </button>
+
+        </div>
+
+      `)
+      .join('');
+
+
+    itemsEl
+      .querySelectorAll('[data-rm]')
+      .forEach(b=>{
+
+        b.addEventListener(
+          'click',
+          ()=>{
+            removeFromCart(
+              parseInt(
+                b.dataset.rm
+              )
+            );
+          }
+        );
+
+      });
+
+  }
+
+
+  const total =
+    cart.reduce(
+      (a,c)=>
+        a+c.price*c.qty,
+      0
+    );
+
+
+  document
+    .getElementById('cartTotal')
+    .textContent =
+    rupiah(total);
+
+}
+
+
+/* =========================================================
+   OPEN CART
+========================================================= */
+
+document
+  .getElementById('cartBtn')
+  .addEventListener(
+    'click',
+    ()=>{
+
+      document
+        .getElementById(
+          'cartDrawer'
+        )
+        .classList.add('open');
+
+
+      document
+        .getElementById('scrim')
+        .classList.add('show');
+
+    }
+  );
+
+
+/* =========================================================
+   CLOSE CART
+========================================================= */
+
+function closeCart(){
+
+  document
+    .getElementById(
+      'cartDrawer'
+    )
+    .classList.remove('open');
+
+
+  document
+    .getElementById('scrim')
+    .classList.remove('show');
+
+}
+
+
+document
+  .getElementById('cartCloseBtn')
+  .addEventListener(
+    'click',
+    closeCart
+  );
+
+
+document
+  .getElementById('scrim')
+  .addEventListener(
+    'click',
+    closeCart
+  );
+
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+document
+  .getElementById('checkoutBtn')
+  .addEventListener(
+    'click',
+    ()=>{
+
+      if(cart.length===0){
+
+        toast(
+          'Keranjang masih kosong'
+        );
+
+        return;
+
+      }
+
+
+      const itemNames =
+        cart
+          .map(c=>
+            c.name +
+            (c.qty>1
+              ? ' ('+c.qty+'x)'
+              : '')
+          )
+          .join(', ');
+
+
+      const total =
+        cart.reduce(
+          (a,c)=>
+            a+c.price*c.qty,
+          0
+        );
+
+
+      const newNo =
+        '#PSN' +
+        Math.floor(
+          100000 +
+          Math.random()*899999
+        );
+
+
+      const today =
+        new Date()
+          .toLocaleDateString(
+            'id-ID',
+            {
+              day:'2-digit',
+              month:'long',
+              year:'numeric'
+            }
+          );
+
+
+      orders.unshift({
+
+        no:newNo,
+
+        tanggal:today,
+
+        item:itemNames,
+
+        total:total,
+
+        status:'diproses'
+
+      });
+
+
+      cart=[];
+
+
+      renderCart();
+
+      closeCart();
+
+      renderOrders();
+
+      goTo('pesanan');
+
+
+      toast(
+        'Pesanan ' +
+        newNo +
+        ' berhasil dibuat'
+      );
+
+    }
+  );
+
+
+/* =========================================================
+   ORDER STATUS
+========================================================= */
+
+function statusLabel(s){
+
+  return {
+
+    diproses:'Diproses',
+
+    dikirim:'Dikirim',
+
+    selesai:'Selesai',
+
+    dibatalkan:'Dibatalkan'
+
+  }[s] || s;
+
+}
+
+
+/* =========================================================
+   RENDER ORDERS
+========================================================= */
+
+function renderOrders(){
+
+  const search =
+    document
+      .getElementById(
+        'orderSearch'
+      )
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  const status =
+    document
+      .getElementById(
+        'statusFilter'
+      )
+      .value;
+
+
+  const list =
+    orders.filter(o=>{
+
+      const matchSearch =
+        !search ||
+
+        o.no
+          .toLowerCase()
+          .includes(search) ||
+
+        o.item
+          .toLowerCase()
+          .includes(search);
+
+
+      const matchStatus =
+        status==='semua' ||
+        o.status===status;
+
+
+      return (
+        matchSearch &&
+        matchStatus
+      );
+
+    });
+
+
+  const body =
+    document.getElementById(
+      'orderBody'
+    );
+
+
+  if(list.length===0){
+
+    body.innerHTML = `
+
+      <tr class="empty-row">
+
+        <td colspan="6">
+
+          Tidak ada pesanan
+          yang cocok dengan pencarian.
+
+        </td>
+
+      </tr>
+
+    `;
+
+    return;
+
+  }
+
+
+  body.innerHTML =
+    list.map(o=>`
+
+      <tr>
+
+        <td class="order-no">
+          ${o.no}
+        </td>
+
+        <td>
+          ${o.tanggal}
+        </td>
+
+        <td>
+          ${o.item}
+        </td>
+
+        <td>
+          ${rupiah(o.total)}
+        </td>
+
+        <td>
+
+          <span
+            class="status-pill ${o.status}"
+          >
+            ${statusLabel(o.status)}
+          </span>
+
+        </td>
+
+        <td>
+
+          <button
+            class="link-detail"
+            data-detail="${o.no}"
+          >
+            Lihat detail
+          </button>
+
+        </td>
+
+      </tr>
+
+    `)
+    .join('');
+
+
+  body
+    .querySelectorAll(
+      '[data-detail]'
+    )
+    .forEach(b=>{
+
+      b.addEventListener(
+        'click',
+        ()=>{
+
+          const o =
+            orders.find(
+              x=>x.no===b.dataset.detail
+            );
+
+
+          if(o){
+
+            toast(
+              `${o.no} — ${o.item} — ${statusLabel(o.status)}`
+            );
+
+          }
+
+        }
+      );
+
+    });
+
+}
+
+
+document
+  .getElementById('orderSearch')
+  .addEventListener(
+    'input',
+    renderOrders
+  );
+
+
+document
+  .getElementById('statusFilter')
+  .addEventListener(
+    'change',
+    renderOrders
+  );
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+const editBtn =
+  document.getElementById(
+    'editToggleBtn'
+  );
+
+
+const saveBtn =
+  document.getElementById(
+    'saveProfileBtn'
+  );
+
+
+const cancelBtn =
+  document.getElementById(
+    'cancelProfileBtn'
+  );
+
+
+let profileBackup={};
+
+
+/* =========================================================
+   ENTER EDIT MODE
+========================================================= */
+
+function enterEditMode(){
+
+  editingProfile=true;
+
+
+  document
+    .querySelectorAll(
+      '.v[data-field]'
+    )
+    .forEach(v=>{
+
+      const field =
+        v.dataset.field;
+
+
+      profileBackup[field] =
+        v.textContent;
+
+
+      const input =
+        document.createElement(
+          'input'
+        );
+
+
+      input.type='text';
+
+      input.value =
+        v.textContent;
+
+      input.dataset.field =
+        field;
+
+
+      v.replaceWith(input);
+
+    });
+
+
+  saveBtn.style.display =
+    'inline-flex';
+
+
+  cancelBtn.style.display =
+    'inline-flex';
+
+
+  editBtn.style.display =
+    'none';
+
+}
+
+
+/* =========================================================
+   EXIT EDIT MODE
+========================================================= */
+
+function exitEditMode(commit){
+
+  document
+    .querySelectorAll(
+      '#dataPribadi input, #alamatPengiriman input'
+    )
+    .forEach(input=>{
+
+      const field =
+        input.dataset.field;
+
+
+      const div =
+        document.createElement(
+          'div'
+        );
+
+
+      div.className='v';
+
+      div.dataset.field =
+        field;
+
+
+      div.textContent =
+        commit
+        ? input.value
+        : profileBackup[field];
+
+
+      input.replaceWith(div);
+
+    });
+
+
+  saveBtn.style.display =
+    'none';
+
+
+  cancelBtn.style.display =
+    'none';
+
+
+  editBtn.style.display =
+    'inline-flex';
+
+
+  editingProfile=false;
+
+
+  if(commit){
+
+    const nama =
+      document.querySelector(
+        '[data-field="nama"]'
+      ).textContent;
+
+
+    const email =
+      document.querySelector(
+        '[data-field="email"]'
+      ).textContent;
+
+
+    document
+      .getElementById(
+        'profileName'
+      )
+      .textContent=nama;
+
+
+    document
+      .getElementById(
+        'profileEmail'
+      )
+      .textContent=email;
+
+
+    updateAvatar(nama);
+
+
+    toast(
+      'Data profil berhasil disimpan'
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+function updateAvatar(name){
+
+  const parts =
+    name
+      .trim()
+      .split(/\s+/);
+
+
+  let initials='';
+
+
+  if(parts[0]){
+
+    initials +=
+      parts[0][0];
+
+  }
+
+
+  if(parts[1]){
+
+    initials +=
+      parts[1][0];
+
+  }
+
+
+  document
+    .getElementById(
+      'avatarInitial'
+    )
+    .textContent =
+    initials
+      .substring(0,2)
+      .toUpperCase();
+
+}
+
+
+editBtn.addEventListener(
+  'click',
+  enterEditMode
+);
+
+
+saveBtn.addEventListener(
+  'click',
+  ()=>{
+    exitEditMode(true);
+  }
+);
+
+
+cancelBtn.addEventListener(
+  'click',
+  ()=>{
+    exitEditMode(false);
+  }
+);
+
+
+/* =========================================================
+   INITIALIZATION
+========================================================= */
+
+renderCategories();
+
+renderFeatured();
+
+renderProdukFilters();
+
+renderProdukGrid();
+
+renderCart();
+
+renderOrders();
+
+
+</script>
+
+</body>
+</html>
